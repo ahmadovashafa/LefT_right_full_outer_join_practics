@@ -1,0 +1,1 @@
+# LefT_right_full_outer_join_practics
