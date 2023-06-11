@@ -1,0 +1,44 @@
+select*from employees;
+select*from depatments;
+
+/*Task 6: Find all departments, whether they have employees or not.*/
+
+select d.department_id,d.department_name,e.employee_id 
+from departments d
+left join employees e
+on d.department_id=e.department_id;
+
+/*Task 7: Find all employees, even if their department doesn't exist.*/
+
+select e.employee_id,e.first_name,e.last_name,d.department_id
+from departments d 
+right join 
+employees e on e.employee_id=d.department_id;
+
+/*Task 8: Show all employees and their managers, even if they don't have a manager.
+
+Hint: Use RIGHT JOIN on the "employees" table twice.*/
+
+select e.employee_id,e.first_name,e.last_name,m.employee_id
+from employees m
+right join 
+employees e on  e.manager_id=m.employee_id;
+
+
+/*Task 9: Display all employees and departments, whether they are assigned or not.
+
+Hint: Use FULL OUTER JOIN on "employees" and "departments"*/
+
+select employee_id,e.first_name,e.last_name,d.department_id,d.department_name
+from employees e
+full outer join
+departments d on e.employee_id= d.department_id;
+
+/*Task 10: Show all locations and departments, whether they have a department or not.
+
+Hint: Use FULL OUTER JOIN on "locations" and "departments */
+
+select l.location_id,d.department_id,d.department_name
+from locations l
+full outer join
+departments d on l.location_id=d.location_id;
